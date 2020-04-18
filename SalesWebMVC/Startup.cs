@@ -50,7 +50,7 @@ namespace SalesWebMVC
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //seedingService.Seed(); // Not working properly
+                seedingService.Seed();
             }
             else
             {
