@@ -56,6 +56,10 @@ namespace SalesWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Department department)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(department);
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(department);
@@ -88,6 +92,10 @@ namespace SalesWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Department department)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(department);
+            }
             if (id != department.Id)
             {
                 return NotFound();
